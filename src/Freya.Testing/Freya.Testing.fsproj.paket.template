@@ -1,14 +1,14 @@
 ﻿type project
 id
-    Freya.Core
+    Freya.Testing
 title
-    Freya.Core
+    Freya.Testing
 description
-    The core building blocks of the Freya web stack
+    Testing utilities and helpers for Freya libraries, plus Freya applications
 tags
-    functional, web, f#, freya
+    functional, web, f#, freya, testing
 version
-    4.0.0-b006
+    4.0.0-b001
 owners
     Andrew Cherry, Ryan Riley
 authors
@@ -18,6 +18,6 @@ copyright
 projectUrl
     https://xyncro.tech/freya
 licenseUrl
-    https://github.com/xyncro/freya-core/blob/master/LICENSE.md
+    https://github.com/xyncro/freya-testing/blob/master/LICENSE.md
 requireLicenseAcceptance
     false
