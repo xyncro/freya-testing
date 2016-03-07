@@ -3,8 +3,8 @@
 open System
 open System.Collections.Generic
 open System.IO
+open Aether
 open Freya.Core
-open Freya.Core.Operators
 open Swensen.Unquote
 
 (* Prelude
@@ -65,9 +65,9 @@ module Prelude =
 
 (* Evaluation *)
 
-let inline evaluate (setup: Freya<unit>) f =
+let inline evaluate setup f =
     state ()
-    |> setup *> (Infer.freya f)
+    |> Freya.combine (setup, Infer.freya f)
     |> Async.RunSynchronously
     |> snd
 
@@ -88,4 +88,4 @@ module Operators =
     (* Assertions *)
 
     let inline (=>) o v =
-        fun s -> s ^. o =! v
+        fun s -> Optic.get o s =! v
