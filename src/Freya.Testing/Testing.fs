@@ -26,7 +26,7 @@ module Prelude =
 
     (* Defaults *)
 
-    let environment =
+    let environment () =
         Dictionary<string,obj> (
             Map.ofList [
 
@@ -46,8 +46,8 @@ module Prelude =
                 "owin.ResponseBody", new MemoryStream () :> obj
                 "owin.ResponseHeaders", Dictionary<string,string []> (ordinalIgnoreCase) :> obj ], ordinal)
 
-    let state =
-        { Environment = environment
+    let state () =
+        { Environment = environment ()
           Meta =
             { Memos = Map.empty } }
 
@@ -68,7 +68,7 @@ module Testing =
     (* Evaluation *)
 
     let inline evaluate (setup: Freya<unit>) f =
-        state
+        state ()
         |> setup *> (Infer.freya f)
         |> Async.RunSynchronously
         |> snd
