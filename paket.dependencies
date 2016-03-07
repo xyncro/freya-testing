@@ -3,6 +3,7 @@ source http://www.myget.org/F/freya/api/v2
 
 nuget Aether     ~> 8.1
 nuget Freya.Core ~> 4.0.0-b
+nuget Unquote
 
 group Build
 

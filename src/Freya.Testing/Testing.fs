@@ -5,6 +5,7 @@ open System.Collections.Generic
 open System.IO
 open Freya.Core
 open Freya.Core.Operators
+open Swensen.Unquote
 
 (* Prelude
 
@@ -62,20 +63,29 @@ module Prelude =
    list of assertions (of whichever test framework is relevant, simple unit
    functions) and run them against the resultant state. *)
 
-[<RequireQualifiedAccess>]
-module Testing =
+(* Evaluation *)
 
-    (* Evaluation *)
+let inline evaluate (setup: Freya<unit>) f =
+    state ()
+    |> setup *> (Infer.freya f)
+    |> Async.RunSynchronously
+    |> snd
 
-    let inline evaluate (setup: Freya<unit>) f =
-        state ()
-        |> setup *> (Infer.freya f)
-        |> Async.RunSynchronously
-        |> snd
+(* Verification *)
 
-    (* Verification *)
+let inline verify setup f assertions =
+    evaluate setup f
+    |> fun state ->
+        List.iter (fun a -> a state) assertions
 
-    let inline verify setup f assertions =
-        evaluate setup f
-        |> fun state ->
-            List.iter (fun a -> a state) assertions
+(* Operators
+
+   Helpful operators for constructing assertions for use with the verify
+   functionality provided to help with testing. *)
+
+module Operators =
+
+    (* Assertions *)
+
+    let inline (=>) o v =
+        fun s -> s ^. o =! v
