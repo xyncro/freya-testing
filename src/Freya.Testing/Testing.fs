@@ -4,6 +4,7 @@ open System
 open System.Collections.Generic
 open System.IO
 open Freya.Core
+open Freya.Core.Operators
 
 (* Prelude
 
@@ -66,7 +67,7 @@ module Testing =
 
     (* Evaluation *)
 
-    let inline evaluate setup f =
+    let inline evaluate (setup: Freya<unit>) f =
         state
         |> setup *> (Infer.freya f)
         |> Async.RunSynchronously
