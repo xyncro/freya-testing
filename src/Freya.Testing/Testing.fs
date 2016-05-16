@@ -1,4 +1,4 @@
-﻿module Freya.Testing
+﻿namespace Freya.Testing
 
 open System
 open System.Collections.Generic
@@ -7,15 +7,15 @@ open Aether
 open Freya.Core
 open Swensen.Unquote
 
-(* Prelude
+(* Defaults
 
-   Helpers to enable the evaluation of any function implementing Freya, given
+   Defaults to enable the evaluation of any function implementing Freya, given
    a setup function of type Freya<_> to initialize the starting state of the
    environment. A default "empty" state will be used, and the eventual state
    will be returned for assertions to be applied as part of a test. *)
 
 [<AutoOpen>]
-module Prelude =
+module Defaults =
 
     (* Comparers *)
 
@@ -65,18 +65,24 @@ module Prelude =
 
 (* Evaluation *)
 
-let inline evaluate setup f =
-    state ()
-    |> Freya.combine (setup, Infer.freya f)
-    |> Async.RunSynchronously
-    |> snd
+[<AutoOpen>]
+module Evaluation =
+
+    let inline evaluate setup f =
+        state ()
+        |> Freya.combine (setup, Freya.infer f)
+        |> Async.RunSynchronously
+        |> snd
 
 (* Verification *)
 
-let inline verify setup f assertions =
-    evaluate setup f
-    |> fun state ->
-        List.iter (fun a -> a state) assertions
+[<AutoOpen>]
+module Verification =
+
+    let inline verify setup f assertions =
+        evaluate setup f
+        |> fun state ->
+            List.iter (fun a -> a state) assertions
 
 (* Operators
 
