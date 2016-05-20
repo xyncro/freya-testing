@@ -12,7 +12,7 @@ GROUP Build
 NUGET
   remote: http://www.nuget.org/api/v2
   specs:
-    FAKE (4.26)
+    FAKE (4.27)
 GITHUB
   remote: xyncro/build
   specs:

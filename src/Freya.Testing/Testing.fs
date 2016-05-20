@@ -14,7 +14,7 @@ open Swensen.Unquote
    environment. A default "empty" state will be used, and the eventual state
    will be returned for assertions to be applied as part of a test. *)
 
-[<AutoOpen>]
+[<RequireQualifiedAccess>]
 module Defaults =
 
     (* Comparers *)
@@ -69,7 +69,7 @@ module Defaults =
 module Evaluation =
 
     let inline evaluate setup f =
-        state ()
+        Defaults.state ()
         |> Freya.combine (setup, Freya.infer f)
         |> Async.RunSynchronously
         |> snd
