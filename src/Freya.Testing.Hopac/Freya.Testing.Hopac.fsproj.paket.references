@@ -3,6 +3,6 @@
   Aether
   Unquote
 
-group Async
+group Hopac
 
-  Freya.Core
+  Freya.Core.Hopac
