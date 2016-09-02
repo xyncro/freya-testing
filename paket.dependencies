@@ -1,9 +1,27 @@
-source http://nuget.org/api/v2
-source http://www.myget.org/F/freya/api/v2
+// Code
 
-nuget Aether     ~> 8.1
-nuget Freya.Core ~> 4.0.0-b
-nuget Unquote
+group Common
+
+  source http://nuget.org/api/v2
+
+  nuget Aether  ~> 8.1
+  nuget Unquote
+
+group Async
+
+  source http://nuget.org/api/v2
+  source http://www.myget.org/F/freya/api/v2
+
+  nuget Freya.Core ~> 3.0.0-rc
+
+group Hopac
+
+  source http://nuget.org/api/v2
+  source http://www.myget.org/F/freya/api/v2
+
+  nuget Freya.Core.Hopac ~> 3.0.0-rc
+
+// Build
 
 group Build
 
@@ -11,6 +29,8 @@ group Build
 
   nuget Fake
   github xyncro/build build.fsx
+
+// Test
 
 group Test
 

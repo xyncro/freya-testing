@@ -1,14 +1,14 @@
 ﻿type project
 id
-    Freya.Testing
+    Freya.Testing.Hopac
 title
-    Freya.Testing
+    Freya.Testing.Hopac
 description
-    Testing utilities and helpers for Freya libraries, plus Freya applications
+    Testing utilities and helpers for Freya libraries, plus Freya applications (Hopac implementation)
 tags
-    functional, web, f#, freya, testing
+    functional, web, f#, freya, testing, hopac
 version
-    4.0.0-b007
+    3.0.0-rc01
 owners
     Andrew Cherry, Ryan Riley
 authors

@@ -7,6 +7,13 @@ open Aether
 open Freya.Core
 open Swensen.Unquote
 
+#if Hopac
+
+open Hopac
+open Hopac.Extensions
+
+#endif
+
 (* Defaults
 
    Defaults to enable the evaluation of any function implementing Freya, given
@@ -68,11 +75,23 @@ module Defaults =
 [<AutoOpen>]
 module Evaluation =
 
+#if Hopac
+
+    let inline evaluate setup f =
+        Defaults.state ()
+        |> Freya.combine (setup, Freya.infer f)
+        |> Job.Global.run
+        |> snd
+
+#else
+
     let inline evaluate setup f =
         Defaults.state ()
         |> Freya.combine (setup, Freya.infer f)
         |> Async.RunSynchronously
         |> snd
+
+#endif
 
 (* Verification *)
 

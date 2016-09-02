@@ -1,0 +1,8 @@
+﻿group Common
+
+  Aether
+  Unquote
+
+group Hopac
+
+  Freya.Core.Hopac

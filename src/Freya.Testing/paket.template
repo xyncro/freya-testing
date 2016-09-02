@@ -1,0 +1,23 @@
+﻿type project
+id
+    Freya.Testing
+title
+    Freya.Testing
+description
+    Testing utilities and helpers for Freya libraries, plus Freya applications
+tags
+    functional, web, f#, freya, testing
+version
+    3.0.0-rc01
+owners
+    Andrew Cherry, Ryan Riley
+authors
+    Andrew Cherry, Ryan Riley
+copyright
+    Copyright Xyncro Ltd 2016
+projectUrl
+    https://xyncro.tech/freya
+licenseUrl
+    https://github.com/xyncro/freya-testing/blob/master/LICENSE.md
+requireLicenseAcceptance
+    false
