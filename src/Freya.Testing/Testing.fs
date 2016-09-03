@@ -10,7 +10,6 @@ open Swensen.Unquote
 #if Hopac
 
 open Hopac
-open Hopac.Extensions
 
 #endif
 
@@ -80,7 +79,7 @@ module Evaluation =
     let inline evaluate setup f =
         Defaults.state ()
         |> Freya.combine (setup, Freya.infer f)
-        |> Job.Global.run
+        |> Hopac.run
         |> snd
 
 #else
