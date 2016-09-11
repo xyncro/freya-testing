@@ -13,12 +13,12 @@ open Hopac
 
 #endif
 
-(* Defaults
+// Defaults
 
-   Defaults to enable the evaluation of any function implementing Freya, given
-   a setup function of type Freya<_> to initialize the starting state of the
-   environment. A default "empty" state will be used, and the eventual state
-   will be returned for assertions to be applied as part of a test. *)
+/// Defaults to enable the evaluation of any function implementing Freya, given
+/// a setup function of type Freya<_> to initialize the starting state of the
+/// environment. A default "empty" state will be used, and the eventual state
+/// will be returned for assertions to be applied as part of a test.
 
 [<RequireQualifiedAccess>]
 module Defaults =
@@ -33,7 +33,7 @@ module Defaults =
 
     (* Defaults *)
 
-    let environment () =
+    let private environment () =
         Dictionary<string,obj> (
             Map.ofList [
 
@@ -53,26 +53,34 @@ module Defaults =
                 "owin.ResponseBody", new MemoryStream () :> obj
                 "owin.ResponseHeaders", Dictionary<string,string []> (ordinalIgnoreCase) :> obj ], ordinal)
 
+    /// A function to give a default Freya state with some required data
+    /// already present, particularly in the OWIN environment data structure.
+
     let state () =
         { Environment = environment ()
           Meta =
             { Memos = Map.empty } }
 
-(* Testing
+// Testing
 
-   Helpers to enable the evaluation of any function implementing Freya, given
-   a setup function of type Freya<_> to initialize the starting state of the
-   environment. A default "empty" state will be used, and the eventual state
-   will be returned for assertions to be applied as part of a test.
+// Helpers to enable the evaluation of any function implementing Freya, given
+// a setup function of type Freya<_> to initialize the starting state of the
+// environment. A default "empty" state will be used, and the eventual state
+// will be returned for assertions to be applied as part of a test.
 
-   Additionally a further verification function is provided which will take a
-   list of assertions (of whichever test framework is relevant, simple unit
-   functions) and run them against the resultant state. *)
+// Additionally a further verification function is provided which will take a
+// list of assertions (of whichever test framework is relevant, simple unit
+// functions) and run them against the resultant state.
 
-(* Evaluation *)
+// Evaluation
 
 [<AutoOpen>]
 module Evaluation =
+
+    /// A function to evaluate a Freya function, given an initial setup
+    /// function to apply modifications to the default Freya state, and a
+    /// function f which may be inferred to be a Freya function (see
+    /// Freya.infer). The resulting state is returned.
 
 #if Hopac
 
@@ -92,24 +100,40 @@ module Evaluation =
 
 #endif
 
-(* Verification *)
+// Verification
 
 [<AutoOpen>]
 module Verification =
+
+    /// A function to verify the resulting state after the evaluation of a
+    /// Freya function, given an initial setup function to apply modifications
+    /// to the default Freya state, and a function f which may be inferred to
+    /// be a Freya function (see Freya.infer).
+
+    /// The final argument is a list of assertions which will be applied to the
+    /// resulting state, and which may be used to signal errors to testing
+    /// frameworks, etc. as part of a unit testing (or other) approach.
 
     let inline verify setup f assertions =
         evaluate setup f
         |> fun state ->
             List.iter (fun a -> a state) assertions
 
-(* Operators
+// Operators
 
-   Helpful operators for constructing assertions for use with the verify
-   functionality provided to help with testing. *)
+// Helpful operators for constructing assertions for use with the verify
+// functionality provided to help with testing.
 
 module Operators =
 
-    (* Assertions *)
+     // Assertions
+
+     /// An assertion (using the Unquote assertion operator) that a value
+     /// obtained from the given state using an optic is equal to the value
+     /// provided.
+
+     /// This is especially useful when combined with the verify function, to
+     /// construct a list of assertions in a concise and meaningful style.
 
     let inline (=>) o v =
         fun s -> Optic.get o s =! v
