@@ -9,7 +9,7 @@
     <PackageProjectUrl>https://freya.io/</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/xyncro/freya-testing</RepositoryUrl>
-    <Tags>functional;web;freya;testing;f#;fsharp</Tags>
-    <Tags Condition="'$(Hopac)' == 'true'">$(Description);hopac</Tags>
+    <PackageTags>$(PackageTags);functional;web;freya;testing;f#;fsharp</PackageTags>
+    <PackageTags Condition="'$(Hopac)' == 'true'">$(PackageTags);hopac</PackageTags>
   </PropertyGroup>
 </Project>
