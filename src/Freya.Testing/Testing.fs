@@ -7,7 +7,7 @@ open Aether
 open Freya.Core
 open Swensen.Unquote
 
-#if Hopac
+#if HOPAC
 
 open Hopac
 
@@ -82,23 +82,16 @@ module Evaluation =
     /// function f which may be inferred to be a Freya function (see
     /// Freya.infer). The resulting state is returned.
 
-#if Hopac
 
     let inline evaluate setup f =
         Defaults.state ()
-        |> Freya.combine (setup, Freya.infer f)
+        |> Freya.combine (Freya.infer f) setup
+#if HOPAC
         |> Hopac.run
-        |> snd
-
 #else
-
-    let inline evaluate setup f =
-        Defaults.state ()
-        |> Freya.combine (setup, Freya.infer f)
         |> Async.RunSynchronously
-        |> snd
-
 #endif
+        |> snd
 
 // Verification
 

@@ -1,61 +1,54 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sln", "sln", "{B6D603B4-183E-4E20-8C36-45D6A9720CAC}"
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{720A8009-494F-443A-9816-9DEDF21F8A1C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependencies", "dependencies", "{BD08A939-9987-4182-9D3E-B52501C2D7DF}"
-	ProjectSection(SolutionItems) = preProject
-		paket.dependencies = paket.dependencies
-		paket.lock = paket.lock
-	EndProjectSection
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Freya.Testing", "src\Freya.Testing\Freya.Testing.fsproj", "{03DA26CD-E381-4391-B87C-2F632E525CF5}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Freya.Testing", "src\Freya.Testing\Freya.Testing.fsproj", "{8E7A529D-2717-4466-8DCB-4582B3F3D3B0}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{E597F706-61F2-44A3-A4FE-980A4C770BB3}"
-	ProjectSection(SolutionItems) = preProject
-		build.cmd = build.cmd
-	EndProjectSection
-EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Freya.Testing.Hopac", "src\Freya.Testing.Hopac\Freya.Testing.Hopac.fsproj", "{993665E6-D24C-40E7-8683-2057163A42FD}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "variants", "variants", "{84FC2283-124D-45E1-AD54-555EA58E3698}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "async", "async", "{B6361204-2FCF-4D84-B45E-78A167562BDA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hopac", "hopac", "{79CB1C1E-AE04-4963-85E7-80D89C472995}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1D1BE8C3-B7B7-4E24-93F7-9FEF85FFCF5F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C839BAF7-081B-4B9B-857F-4D08A29369E7}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Freya.Testing.Hopac", "src\Freya.Testing.Hopac\Freya.Testing.Hopac.fsproj", "{35FAD99C-0653-46FF-A480-8BD27F785E02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8E7A529D-2717-4466-8DCB-4582B3F3D3B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E7A529D-2717-4466-8DCB-4582B3F3D3B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E7A529D-2717-4466-8DCB-4582B3F3D3B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E7A529D-2717-4466-8DCB-4582B3F3D3B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{993665E6-D24C-40E7-8683-2057163A42FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{993665E6-D24C-40E7-8683-2057163A42FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{993665E6-D24C-40E7-8683-2057163A42FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{993665E6-D24C-40E7-8683-2057163A42FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03DA26CD-E381-4391-B87C-2F632E525CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03DA26CD-E381-4391-B87C-2F632E525CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03DA26CD-E381-4391-B87C-2F632E525CF5}.Debug|x64.ActiveCfg = Debug|x64
+		{03DA26CD-E381-4391-B87C-2F632E525CF5}.Debug|x64.Build.0 = Debug|x64
+		{03DA26CD-E381-4391-B87C-2F632E525CF5}.Debug|x86.ActiveCfg = Debug|x86
+		{03DA26CD-E381-4391-B87C-2F632E525CF5}.Debug|x86.Build.0 = Debug|x86
+		{03DA26CD-E381-4391-B87C-2F632E525CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03DA26CD-E381-4391-B87C-2F632E525CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03DA26CD-E381-4391-B87C-2F632E525CF5}.Release|x64.ActiveCfg = Release|x64
+		{03DA26CD-E381-4391-B87C-2F632E525CF5}.Release|x64.Build.0 = Release|x64
+		{03DA26CD-E381-4391-B87C-2F632E525CF5}.Release|x86.ActiveCfg = Release|x86
+		{03DA26CD-E381-4391-B87C-2F632E525CF5}.Release|x86.Build.0 = Release|x86
+		{35FAD99C-0653-46FF-A480-8BD27F785E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FAD99C-0653-46FF-A480-8BD27F785E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FAD99C-0653-46FF-A480-8BD27F785E02}.Debug|x64.ActiveCfg = Debug|x64
+		{35FAD99C-0653-46FF-A480-8BD27F785E02}.Debug|x64.Build.0 = Debug|x64
+		{35FAD99C-0653-46FF-A480-8BD27F785E02}.Debug|x86.ActiveCfg = Debug|x86
+		{35FAD99C-0653-46FF-A480-8BD27F785E02}.Debug|x86.Build.0 = Debug|x86
+		{35FAD99C-0653-46FF-A480-8BD27F785E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35FAD99C-0653-46FF-A480-8BD27F785E02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35FAD99C-0653-46FF-A480-8BD27F785E02}.Release|x64.ActiveCfg = Release|x64
+		{35FAD99C-0653-46FF-A480-8BD27F785E02}.Release|x64.Build.0 = Release|x64
+		{35FAD99C-0653-46FF-A480-8BD27F785E02}.Release|x86.ActiveCfg = Release|x86
+		{35FAD99C-0653-46FF-A480-8BD27F785E02}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{BD08A939-9987-4182-9D3E-B52501C2D7DF} = {B6D603B4-183E-4E20-8C36-45D6A9720CAC}
-		{8E7A529D-2717-4466-8DCB-4582B3F3D3B0} = {1D1BE8C3-B7B7-4E24-93F7-9FEF85FFCF5F}
-		{E597F706-61F2-44A3-A4FE-980A4C770BB3} = {B6D603B4-183E-4E20-8C36-45D6A9720CAC}
-		{993665E6-D24C-40E7-8683-2057163A42FD} = {C839BAF7-081B-4B9B-857F-4D08A29369E7}
-		{B6361204-2FCF-4D84-B45E-78A167562BDA} = {84FC2283-124D-45E1-AD54-555EA58E3698}
-		{79CB1C1E-AE04-4963-85E7-80D89C472995} = {84FC2283-124D-45E1-AD54-555EA58E3698}
-		{1D1BE8C3-B7B7-4E24-93F7-9FEF85FFCF5F} = {B6361204-2FCF-4D84-B45E-78A167562BDA}
-		{C839BAF7-081B-4B9B-857F-4D08A29369E7} = {79CB1C1E-AE04-4963-85E7-80D89C472995}
+		{03DA26CD-E381-4391-B87C-2F632E525CF5} = {720A8009-494F-443A-9816-9DEDF21F8A1C}
+		{35FAD99C-0653-46FF-A480-8BD27F785E02} = {720A8009-494F-443A-9816-9DEDF21F8A1C}
 	EndGlobalSection
 EndGlobal
