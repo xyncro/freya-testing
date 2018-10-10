@@ -12,5 +12,14 @@
     <RepositoryUrl>https://github.com/xyncro/freya-testing</RepositoryUrl>
     <PackageTags>$(PackageTags);functional;web;freya;testing;f#;fsharp</PackageTags>
     <PackageTags Condition="'$(Hopac)' == 'true'">$(PackageTags);hopac</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- SourceLink related properties https://github.com/dotnet/SourceLink#using-sourcelink -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-*" PrivateAssets="All" />
+  </ItemGroup>
 </Project>

@@ -1,13 +1,15 @@
 <Project>
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <DefineConstants Condition="'$(Hopac)' == 'true'">$(DefineConstants);HOPAC</DefineConstants>
   </PropertyGroup>
+    
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Freya.Testing\Testing.fs" />
   </ItemGroup>
+    
   <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.3.4" />
     <PackageReference Include="Aether" Version="[8.2.0,9)" />
   </ItemGroup>
 
@@ -20,11 +22,11 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(Hopac)' != 'true'">
-    <PackageReference Include="Freya.Core" Version="[4.0.0-alpha-*,5)" />
+    <PackageReference Include="Freya.Core" Version="[4.0.*,5)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(Hopac)' == 'true'">
-    <PackageReference Include="Freya.Core.Hopac" Version="[4.0.0-alpha-*,5)" />
+    <PackageReference Include="Freya.Core.Hopac" Version="[4.0.*,5)" />
     <PackageReference Include="Hopac" Version="0.3.23" />
   </ItemGroup>
 </Project>
